@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Change of Perceptions</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Tetris  Rotation Logic Basically I used SRS Rotation System
+  When unobstructed, the tetrominoes all rotate purely about a single point. These apparent rotation centers are shown as circles in the diagram.   Single Point (Pivot) is different by box size (ie 2, 3, 4)
+I calculate O block as size of 2 (0, 0), (0, 1), (1, 1), (1, 0)
+Box size of I block is 4 and 3 for all other blocks">
+<meta name="author" content="">
+<link rel="canonical" href="http://monk.github.io/monk/til/tetrisrotation/" />
+<link crossorigin="anonymous" href="/monk/assets/css/stylesheet.min.65aebb33e4f0ce3d1a39e4a35c11b91eb08b582489fca0f78f9227d90ac72a52.css" integrity="sha256-Za67M&#43;Twzj0aOeSjXBG5HrCLWCSJ/KD3j5In2QrHKlI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/monk/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://monk.github.io/monk/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://monk.github.io/monk/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://monk.github.io/monk/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://monk.github.io/monk/apple-touch-icon.png">
+<link rel="mask-icon" href="http://monk.github.io/monk/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.1" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="Tetris  Rotation Logic Basically I used SRS Rotation System
+  When unobstructed, the tetrominoes all rotate purely about a single point. These apparent rotation centers are shown as circles in the diagram.   Single Point (Pivot) is different by box size (ie 2, 3, 4)
+I calculate O block as size of 2 (0, 0), (0, 1), (1, 1), (1, 0)
+Box size of I block is 4 and 3 for all other blocks" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://monk.github.io/monk/til/tetrisrotation/" /><meta property="article:section" content="TIL" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Tetris  Rotation Logic Basically I used SRS Rotation System
+  When unobstructed, the tetrominoes all rotate purely about a single point. These apparent rotation centers are shown as circles in the diagram.   Single Point (Pivot) is different by box size (ie 2, 3, 4)
+I calculate O block as size of 2 (0, 0), (0, 1), (1, 1), (1, 0)
+Box size of I block is 4 and 3 for all other blocks"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "TILs",
+      "item": "http://monk.github.io/monk/til/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "",
+      "item": "http://monk.github.io/monk/til/tetrisrotation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Tetris  Rotation Logic Basically I used SRS Rotation System\n  When unobstructed, the tetrominoes all rotate purely about a single point. These apparent rotation centers are shown as circles in the diagram.   Single Point (Pivot) is different by box size (ie 2, 3, 4)\nI calculate O block as size of 2 (0, 0), (0, 1), (1, 1), (1, 0)\nBox size of I block is 4 and 3 for all other blocks",
+  "keywords": [
+    
+  ],
+  "articleBody": "Tetris  Rotation Logic Basically I used SRS Rotation System\n  When unobstructed, the tetrominoes all rotate purely about a single point. These apparent rotation centers are shown as circles in the diagram.   Single Point (Pivot) is different by box size (ie 2, 3, 4)\nI calculate O block as size of 2 (0, 0), (0, 1), (1, 1), (1, 0)\nBox size of I block is 4 and 3 for all other blocks\nHow to Rotate Rotate by (0, 0) - (box size / 2, box size / 2)\nUse Transformation matrix to rotate ${1 \\over 2}\\pi$ clockwise rotate ${3\\pi\\over2}$ $$ Clockwise \\ Rotation\n{1 \\over 2}\\pi Counter \\ Clockwise \\ Rotation\n{3 \\over 2}\\pi\n$$\n$$ \\begin{align} Use\\ transformation \\ matrix\\ to\\ rotate \\ {pi \\over 2} to \\ clock wise \\ rotation {3 \\over 2 }\\pi \\\nClockwise \\ Rotation\\ Matrix \\ \\begin{pmatrix} \\cos\\theta \u0026 \\sin\\theta \\\n-\\sin\\theta \u0026 \\cos\\theta \\\n\\end{pmatrix} \\ \\\nCounter\\ Clockwise \\ rotaion \\ Matrix \\begin{pmatrix} \\cos\\theta \u0026 -\\sin\\theta \\\n\\sin\\theta \u0026 \\cos\\theta \\\n\\end{pmatrix} \\end{align} $$\n And basically coordinates starts positive column and row because of array index\nSo we align the coordinates to pivot point which different by box size\n3 x 3 block' s pivot point is (1, 1)\n2 x 2 block' s pivot point is (0.5, 0.5) pivot point align between block\n4 x 4 block’s pivot point is (1,5 1,5)\nFirst move transformation to pivot point\nAnd move again to original point\n $$ \\begin{align} \\begin{pmatrix} 0 \u0026 1 \\\n-1 \u0026 0 \\\n\\end{pmatrix}\n\\begin{pmatrix} x \\ - \\ c \\\ny \\ - \\ c \\\n\\end{pmatrix} + \\begin{pmatrix} c \\\nc \\end{pmatrix} \\\n\\end{align} \\\n\\begin{pmatrix} x \\\ny \\\n\\end{pmatrix} = \\begin{pmatrix} y\\\n2c\\ -x \\end{pmatrix} $$\n Block will move by direction when direction key hits\nSo we have to adjust coordinates of blocks\nLet’s say moved Colum by a and Row by b\n $$ \\begin{align*} Column \\ moved \\ by \\ a \\\nRow \\ moved \\ by \\ b \\end{align*} \\\n\\begin{pmatrix} 0 \u0026 1 \\\n-1 \u0026 0 \\\n\\end{pmatrix}\n\\begin{pmatrix} x \\ - \\ a- \\ c \\\ny \\ - \\ b - \\ c \\\n\\end{pmatrix} + \\begin{pmatrix} c + a\\\nc + b \\end{pmatrix} = \\begin{pmatrix} y + a - b \\\na + b + 2c - x \\\n\\end{pmatrix} $$\nImplementation  Block coordinates based x, y plane starts at 0,0\nFor example Z Block Coordinates $\\begin{pmatrix}(1 , 0 ),( 1, 1)\\(2,1),(2,2)\\end{pmatrix}$ Pivot point is 0, 0 but it moved 1 to x axis 1 to y axis\nAnd box size is 3\nBut O, I block' pivot is between the block area I - (1.5, 1.5) O - 0.5, 0.5\nhalf of 0~3 and half of 0~1\nSo we have to adjust pivot point by box size\nEvery coordinates of blocks in first quadrant shifted by ${box size-1 \\over 2 }$ up and right\nCalculate it and we have rotated block by same pivot\n  $$ \\begin{align} a = 1 \\ b = 1 \\ c = 3 / 2 - 0.5 \\ boxsize\n\\end{align} \\\n\\begin{pmatrix} 0 \u0026 1 \\\n-1 \u0026 0 \\\n\\end{pmatrix}\n\\begin{pmatrix} x \\ - \\ 1- \\ c \\\ny \\ - \\ 1 - \\ c \\\n\\end{pmatrix} + \\begin{pmatrix} c + 1\\\nc + 1 \\end{pmatrix} = \\begin{pmatrix} y + 1 - 1 \\\n1 + 1 + 2 - x \\\n\\end{pmatrix} $$\n ",
+  "wordCount" : "575",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://monk.github.io/monk/til/tetrisrotation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Change of Perceptions",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://monk.github.io/monk/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://monk.github.io/monk" accesskey="h" title="Change of Perceptions (Alt + H)">Change of Perceptions</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="http://monk.github.io/monk/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://monk.github.io/monk/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">
+</div>
+  </header> 
+  <div class="post-content"><h2 id="tetris">Tetris<a hidden class="anchor" aria-hidden="true" href="#tetris">#</a></h2>
+<hr>
+<h4 id="rotation-logic">Rotation Logic<a hidden class="anchor" aria-hidden="true" href="#rotation-logic">#</a></h4>
+<p>Basically I used SRS Rotation System</p>
+<blockquote>
+<ul>
+<li><em>When unobstructed, the tetrominoes all rotate purely about a single point. These apparent rotation centers are shown as circles in the diagram.</em></li>
+</ul>
+</blockquote>
+<p><code>Single Point (Pivot)</code> is different by box size (ie 2, 3, 4)</p>
+<p>I calculate <code>O</code> block as size of 2 (0, 0), (0, 1), (1, 1), (1, 0)</p>
+<p>Box size of <code>I</code> block is 4  and 3 for all other blocks</p>
+<h4 id="how-to-rotate">How to Rotate<a hidden class="anchor" aria-hidden="true" href="#how-to-rotate">#</a></h4>
+<p>Rotate by (0, 0) - (box size / 2, box size / 2)</p>
+<p>Use Transformation matrix to rotate ${1 \over 2}\pi$ clockwise rotate ${3\pi\over2}$
+$$
+Clockwise \ Rotation<br>
+{1 \over 2}\pi
+Counter \ Clockwise \ Rotation<br>
+{3 \over 2}\pi<br>
+$$</p>
+<p>$$
+\begin{align}
+Use\ transformation \ matrix\ to\ rotate \
+{pi \over 2} to \ clock wise \ rotation
+{3 \over 2 }\pi \<br>
+Clockwise \ Rotation\ Matrix \
+\begin{pmatrix}
+\cos\theta &amp; \sin\theta \<br>
+-\sin\theta &amp; \cos\theta \<br>
+\end{pmatrix}
+\ \<br>
+Counter\ Clockwise \ rotaion \ Matrix
+\begin{pmatrix}
+\cos\theta &amp; -\sin\theta \<br>
+\sin\theta &amp; \cos\theta \<br>
+\end{pmatrix}
+\end{align}
+$$</p>
+<blockquote>
+<p>And basically coordinates starts positive column and row because of array index</p>
+<p>So we align the coordinates to pivot point which different by box size</p>
+<p>3 x 3 block' s pivot point is <code>(1, 1)</code></p>
+<p>2 x 2 block' s pivot point is <code>(0.5, 0.5)</code>
+<em>pivot point align between block</em></p>
+<p>4 x 4 block&rsquo;s pivot point is <code>(1,5 1,5)</code></p>
+<p>First move transformation to pivot point</p>
+<p>And move again to original point</p>
+</blockquote>
+<p>$$
+\begin{align}
+\begin{pmatrix}
+0 &amp; 1 \<br>
+-1 &amp; 0 \<br>
+\end{pmatrix}<br>
+\begin{pmatrix}
+x \ - \ c \<br>
+y \ - \ c \<br>
+\end{pmatrix} +
+\begin{pmatrix}
+c \<br>
+c
+\end{pmatrix} \<br>
+\end{align}
+\<br>
+\begin{pmatrix}
+x \<br>
+y \<br>
+\end{pmatrix} =&gt;
+\begin{pmatrix}
+y\<br>
+2c\ -x
+\end{pmatrix}
+$$</p>
+<blockquote>
+<p>Block will move by direction when direction key hits</p>
+<p>So we have to adjust coordinates of blocks</p>
+<p>Let&rsquo;s say moved Colum by a and Row by b</p>
+</blockquote>
+<p>$$
+\begin{align*}
+Column \ moved \ by \ a \<br>
+Row \ moved \ by \ b
+\end{align*}
+\<br>
+\begin{pmatrix}
+0 &amp; 1 \<br>
+-1 &amp; 0 \<br>
+\end{pmatrix}<br>
+\begin{pmatrix}
+x \ - \ a- \ c \<br>
+y \ - \ b - \ c \<br>
+\end{pmatrix} +
+\begin{pmatrix}
+c + a\<br>
+c + b
+\end{pmatrix} =
+\begin{pmatrix}
+y + a - b \<br>
+a + b + 2c - x \</p>
+<p>\end{pmatrix}
+$$</p>
+<h4 id="implementation">Implementation<a hidden class="anchor" aria-hidden="true" href="#implementation">#</a></h4>
+<blockquote>
+<p>Block coordinates based x, y plane  starts at 0,0</p>
+<p>For example <code>Z</code> Block Coordinates $\begin{pmatrix}(1 , 0 ),( 1, 1)\(2,1),(2,2)\end{pmatrix}$ Pivot point is <code>0, 0</code> but it moved 1 to x axis 1 to y axis</p>
+<p>And box size is 3</p>
+<p>But O, I block' pivot is between the block area I -&gt; (1.5, 1.5) O -&gt; 0.5, 0.5</p>
+<p><em>half of 0~3 and half of 0~1</em></p>
+<p>So we have to adjust pivot point by box size</p>
+<p>Every coordinates of blocks in first quadrant shifted by ${box size-1 \over 2 }$ up and right</p>
+<p>Calculate it and we have rotated block by same pivot</p>
+</blockquote>
+<blockquote>
+<p>$$
+\begin{align}
+a = 1 \ b = 1 \ c = 3 / 2 - 0.5 \ boxsize</p>
+<p>\end{align}
+\<br>
+\begin{pmatrix}
+0 &amp; 1 \<br>
+-1 &amp; 0 \<br>
+\end{pmatrix}<br>
+\begin{pmatrix}
+x \ - \ 1- \ c \<br>
+y \ - \ 1 - \ c \<br>
+\end{pmatrix} +
+\begin{pmatrix}
+c + 1\<br>
+c + 1
+\end{pmatrix} =
+\begin{pmatrix}
+y + 1 - 1 \<br>
+1 + 1 + 2 - x \</p>
+<p>\end{pmatrix}
+$$</p>
+</blockquote>
+
+</div>
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2021 <a href="http://monk.github.io/monk">Change of Perceptions</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

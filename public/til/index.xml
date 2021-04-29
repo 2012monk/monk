@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TILs on Change of Perceptions</title>
+    <link>http://monk.github.io/monk/til/</link>
+    <description>Recent content in TILs on Change of Perceptions</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://monk.github.io/monk/til/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://monk.github.io/monk/til/tetrisrotation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://monk.github.io/monk/til/tetrisrotation/</guid>
+      <description>Tetris  Rotation Logic Basically I used SRS Rotation System
+  When unobstructed, the tetrominoes all rotate purely about a single point. These apparent rotation centers are shown as circles in the diagram.   Single Point (Pivot) is different by box size (ie 2, 3, 4)
+I calculate O block as size of 2 (0, 0), (0, 1), (1, 1), (1, 0)
+Box size of I block is 4 and 3 for all other blocks</description>
+    </item>
+    
+  </channel>
+</rss>
