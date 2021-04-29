@@ -1,9 +1,3 @@
----
-title: "tetris rotation"
-categories: ["TIL"]
-
----
-
 ## Tetris
 
 ---
