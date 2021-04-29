@@ -1,6 +1,6 @@
 ---
-title = "tetris rotation"
-categories = ["TIL"]
+title: "tetris rotation"
+categories: ["TIL"]
 
 ---
 
