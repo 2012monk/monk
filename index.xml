@@ -388,16 +388,6 @@ String str = &amp;#39;abc&amp;#39; // 위 아래는 같다 char data[] = {&amp;#
     
     <item>
       <title></title>
-      <link>https://2012monk.github.io/monk/til/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://2012monk.github.io/monk/til/test/</guid>
-      <description>TestStart    somthing somthing1
-  </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://2012monk.github.io/monk/til/tetrisrotation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -571,6 +561,16 @@ XML 에 기반한 메시지 지향 미들웨어용 통신 프로토콜이다.
 여러가지 방법 polling, longpolling 등 방식이 있었지만 소켓의 연결이 유지되는 web socket 으로 채팅을 구현하였습니다.
 Login 로그인 방식은 서버 세션으로 구현했습니다.
 HttpSession 객체에 임의의 세션아이디를 부여하고 DB와 연동함으로써 서버가 다운되더라도 유지될수 있도록 구현했습니다.</description>
+    </item>
+    
+    <item>
+      <title>te00st</title>
+      <link>https://2012monk.github.io/monk/til/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2012monk.github.io/monk/til/test/</guid>
+      <description>TestStart   somthing somthing1
+  </description>
     </item>
     
   </channel>
