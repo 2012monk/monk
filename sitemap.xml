@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://monk.github.io/til/tetrisrotation/</loc>
+    <loc>http://monk.github.io/monk/til/tetrisrotation/</loc>
   </url><url>
-    <loc>http://monk.github.io/categories/</loc>
+    <loc>http://monk.github.io/monk/categories/</loc>
   </url><url>
-    <loc>http://monk.github.io/</loc>
+    <loc>http://monk.github.io/monk/</loc>
   </url><url>
-    <loc>http://monk.github.io/tags/</loc>
+    <loc>http://monk.github.io/monk/tags/</loc>
   </url><url>
-    <loc>http://monk.github.io/til/</loc>
+    <loc>http://monk.github.io/monk/til/</loc>
   </url>
 </urlset>
