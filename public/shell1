@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for file in "$(ls post/* )";
+do
+	cat $file "a" 
+ 
+done

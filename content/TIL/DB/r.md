@@ -1,4 +1,0 @@
-## Relational model
-
----
-
