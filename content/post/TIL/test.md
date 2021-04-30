@@ -1,6 +1,6 @@
 ---
 title: "test"
-categories: "TIL"
+categories: ["TIL", "post"]
 ---
 ### TestStart
 
