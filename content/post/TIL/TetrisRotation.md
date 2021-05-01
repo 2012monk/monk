@@ -1,11 +1,9 @@
 ---
 title: "Tetris rotation"
-date: {{ .Date }}
-categories:["TIL"]
-tags:[]
-
+date: 2021 
+categories: ["TIL"]
 ---
- 
+
 
 
 ## Tetris

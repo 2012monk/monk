@@ -18,6 +18,10 @@ params:
     env: production
     author: monk 
 
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowToc: true
+    ShowShareButtons: true
     defaultTheme: light
     # defaultTheme: dark
     # defaultTheme: auto # to switch between dark or light according to browser theme
@@ -29,17 +33,6 @@ params:
         - name: github
           url: "https://github.com/2012monk"
      
-    fuseOpts:
-          isCaseSensitive: false
-          shouldSort: true
-          location: 0
-          distance: 1000
-          threshold: 0.4
-          minMatchCharLength: 0
-          keys: ["title", "permalink", "summary", "content"]
-
-     ShowToc: true
-     ShowShareButtons: true
 
 outputs:
     home:
