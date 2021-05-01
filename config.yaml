@@ -41,6 +41,3 @@ outputs:
         - HTML
 
 
-taxonomies:
-    category: categories
-    tag: tags
