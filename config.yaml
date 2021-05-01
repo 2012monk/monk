@@ -15,17 +15,19 @@ menu:
           weight: 20
 
 params:
-    env: production 
+    env: production
+    author: monk 
+
     defaultTheme: light
     # defaultTheme: dark
     # defaultTheme: auto # to switch between dark or light according to browser theme
     homeInfoParams:
-        Title: Change of Perception \n 인식의 방향
-        Content: Welcome  
+        Title: "Change of Perception \n 인식의 방향"
+        Content: > ##Welcome  
 
     socialIcons: github.com 
-        - name: "github"
-            url: "https://github.com/2012monk"
+        - name: github
+          url: "https://github.com/2012monk"
               #        - name: "<platform 2>"
               #            url: "<link2>"
      fuseOpts:
@@ -37,9 +39,17 @@ params:
           minMatchCharLength: 0
           keys: ["title", "permalink", "summary", "content"]
 
-outputs:
-    home:
-        - HTML
-        - RSS              
+    outputs:
+        home:
+            - HTML
+            - RSS              
+     ShowPostNavLinks: true
+     ShowBreadCrumbs: true
+     ShowToc: true
 
-ShowToc: true
+
+
+
+taxonomies:
+    category: categories
+    tag: tags
