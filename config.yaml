@@ -25,7 +25,7 @@ params:
         Title: "Change of Perception \n 인식의 방향"
         Content: > ##Welcome  
 
-    socialIcons: github.com 
+    socialIcons:  
         - name: github
           url: "https://github.com/2012monk"
               #        - name: "<platform 2>"
@@ -46,6 +46,7 @@ params:
      ShowPostNavLinks: true
      ShowBreadCrumbs: true
      ShowToc: true
+     ShowShareButtons: true
 
 
 
