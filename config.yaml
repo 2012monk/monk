@@ -24,8 +24,8 @@ params:
         Content: Welcome  
 
     socialIcons: github.com 
-        - name: "<github>"
-            url: "<https://github.com/2012monk>"
+        - name: "github"
+            url: "https://github.com/2012monk"
               #        - name: "<platform 2>"
               #            url: "<link2>"
      fuseOpts:
