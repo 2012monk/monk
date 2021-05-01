@@ -1,8 +1,0 @@
-#!/bin/bash
-
-for file in "$(ls  TIL/*.md )";
-do
-	tmpl= ""
-	cat $file  
- 
-done
